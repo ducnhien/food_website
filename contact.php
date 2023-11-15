@@ -78,7 +78,7 @@ if (isset($_POST['send'])) {
 
     </section>
 
-    <?php include 'compoments/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 
     <!-- custom js file link  -->
     <script src="js/script.js"></script>

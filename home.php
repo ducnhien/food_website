@@ -148,7 +148,7 @@ include 'components/add_cart.php';
 
 
 
-    <?php include 'compoments/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

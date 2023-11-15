@@ -26,16 +26,16 @@ if (isset($_POST['submit'])) {
     $select_user = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' OR number = '$number'") or die('query failed');
     $row = mysqli_fetch_array($select_user);
 
-    if(mysqli_num_rows($select_user) > 0) {
+    if (mysqli_num_rows($select_user) > 0) {
         $message[] = 'email or number already exsits';
-    }else {
-        if($pass != $cpass){
+    } else {
+        if ($pass != $cpass) {
             $message[] = 'confirm password not matched';
-        }else {
+        } else {
             $insert_user = mysqli_query($conn, "INSERT INTO `users`(name, email, number, password) VALUES('$name', '$email', '$number', '$cpass')");
             $select_user = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email' AND password = '$pass'");
             $row = mysqli_fetch_assoc($select_user);
-            if(mysqli_num_rows($select_user) > 0) {
+            if (mysqli_num_rows($select_user) > 0) {
                 $_SESSION['user_id'] = $row['id'];
                 header('location:home.php');
             }
@@ -47,7 +47,6 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +59,10 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-
 <body>
+
+    <?php include 'components/user_header.php'; ?>
+
     <section class="form-container">
 
         <form action="" method="post">
@@ -78,12 +79,11 @@ if (isset($_POST['submit'])) {
     </section>
 
 
-    <?php include 'compoments/footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 
 
     <!-- custom js file link -->
     <script src="js/script.js"></script>
 
 </body>
-
 </html>

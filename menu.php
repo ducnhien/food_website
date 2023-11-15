@@ -16,13 +16,12 @@ include 'components/add_cart.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category</title>
+    <title>menu</title>
 
-    <!-- font awesome cdn link -->
+    <!-- Font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- custom css file link -->
@@ -33,15 +32,19 @@ include 'components/add_cart.php';
 
     <?php include 'components/user_header.php'; ?>
 
+    <div class="heading">
+        <h3>our menu</h3>
+        <p><a href="home.php">home</a> / menu</p>
+    </div>
+
     <section class="products">
 
-        <h1 class="title">food category</h1>
+        <h1 class="title">latest dishes</h1>
 
         <div class="box-container">
 
             <?php
-            $category = $_GET['category'];
-            $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE category = '$category'");
+            $select_products = mysqli_query($conn, 'SELECT * FROM `products`') or die('query failed');
             if (mysqli_num_rows($select_products) > 0) {
                 while ($fetch_products = mysqli_fetch_assoc($select_products)) {
             ?>
@@ -53,6 +56,7 @@ include 'components/add_cart.php';
                         <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
                         <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
                         <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
+                        <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
                         <div class="name"><?= $fetch_products['name']; ?></div>
                         <div class="flex">
                             <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
@@ -72,9 +76,6 @@ include 'components/add_cart.php';
 
     <?php include 'components/footer.php'; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- custom js file link -->
     <script src="js/script.js"></script>
 
 </body>
