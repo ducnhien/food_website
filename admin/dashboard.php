@@ -96,9 +96,22 @@ if (!isset($admin_id)) {
                 <a href="admin_accounts.php" class="btn">see admins</a>
             </div>
 
+            <div class="box">
+                <?php
+                $select_messages = mysqli_query($conn,'SELECT * FROM `messages`') or die('query failed');
+                $numbers_of_messages = mysqli_num_rows($select_messages);
+                ?>
+                <h3><?= $numbers_of_messages; ?></h3>
+                <p>new messages</p>
+                <a href="messages.php" class="btn">see messages</a>
+            </div>
+
         </div>
 
     </section>
+
+
+    <script src="../js/script.js"></script>
 
 </body>
 
