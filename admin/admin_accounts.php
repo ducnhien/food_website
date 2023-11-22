@@ -12,8 +12,8 @@ if (!isset($admin_id)) {
 
 if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
-    $delete = mysqli_query($con, "DELETE FROM `admin` WHERE id = '$delete_id'") or die('query failed');
-    header('location:admin_account.php');
+    $delete = mysqli_query($conn, "DELETE FROM `admin` WHERE id = '$delete_id'") or die('query failed');
+    header('location:admin_accounts.php');
 }
 
 ?>
