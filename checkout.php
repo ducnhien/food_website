@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
-    <?php include 'compoments/user_header.php'; ?>
+    <?php include 'components/user_header.php'; ?>
 
     <div class="heading">
         <h3>checkout</h3>

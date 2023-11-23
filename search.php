@@ -47,7 +47,7 @@ include 'components/add_cart.php';
                 $search_box = $_POST['search_box'];
                 $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_box}%'") or die('query failed');
                 if (mysqli_num_rows($select_products) > 0) {
-                    while ($row = mysqli_fetch_assoc($select_products)) {
+                    while ($fetch_products = mysqli_fetch_assoc($select_products)) {
             ?>
                         <form action="" method="post" class="box">
                             <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">

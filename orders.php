@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id'])) {
         <p><a href="home.php">home</a> / orders</p>
     </div>
 
-    <section class="box-container">
+    <section class="orders">
 
         <h1 class="title">your orders</h1>
 
