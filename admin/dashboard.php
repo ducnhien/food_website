@@ -83,7 +83,7 @@ if (!isset($admin_id)) {
                 ?>
                 <h3><?= $numbers_of_users; ?></h3>
                 <p>users accounts</p>
-                <a href="users_account.php" class="btn">see users</a>
+                <a href="users_accounts.php" class="btn">see users</a>
             </div>
 
             <div class="box">
