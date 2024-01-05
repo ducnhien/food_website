@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($select_admin) > 0) {
         $fetch_admin_id = mysqli_fetch_assoc($select_admin);
         $_SESSION['admin_id'] = $fetch_admin_id['id'];
-        header('location:dashboard.php');
+        header('location: index.php');
     } else {
         $message[] = 'incorrect username or password!';
     }
@@ -56,13 +56,15 @@ if (isset($_POST['submit'])) {
 
         <form action="" method="post">
             <h3>login now</h3>
-            <p>default username = <span>admin</span> & password = <span>111</span></p>
+            <p><span>WELCOME BACK TO FOOD WEBSITE</span></p>
             <input type="text" name="name" maxlength="20" required placeholder="enter your username" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
             <input type="password" name="pass" maxlength="20" required placeholder="enter your password" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
             <input type="submit" value="login now" name="submit" class="btn">
+            <a class="forgot_pass_link" href="forgot_pass.php">Forgot password?</a>
         </form>
-
+        
     </section>
+    
 
 </body>
 </html>

@@ -598,3 +598,14 @@ section{
    }
 
 }
+
+.forgot_pass_link {
+   margin-top: 10px;
+   float: left;
+   font-size: 13px;
+   color: black;
+}
+.forgot_pass_link:hover{
+   color: blue;
+   padding-left: 2px;
+}
