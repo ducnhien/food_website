@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    $empty_pass = '40bd001563085fc35165329ea1ff5c5ecbdbbeef';
+    $empty_pass = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
     $select_prev_pass = mysqli_query($conn, "SELECT password FROM `users` WHERE id = '$user_id'") or die('query failed');
     $fetch_prev_pass = mysqli_fetch_assoc($select_prev_pass);
     $prev_pass = $fetch_prev_pass['password'];
@@ -56,17 +56,21 @@ if (isset($_POST['submit'])) {
     if ($old_pass != $empty_pass) {
         if ($old_pass != $prev_pass) {
             $message[] = 'old password not matched!';
-        } elseif ($new_pass != $confirm_pass) {
+        } 
+        
+        else if ($new_pass != $confirm_pass) {
             $message[] = 'confirm password not matched!';
         } else {
-            if ($new_pass != $empty_pass) {
+            if ($new_pass != $empty_pass ) {
                 $update_pass = mysqli_query($conn,"UPDATE `users` SET password = '$confirm_pass' WHERE id = '$user_id'");
                 $message[] = 'password updated successfully!';
             } else {
                 $message[] = 'please enter a new password!';
             }
         }
-    }
+    } 
+}else {
+    echo "xin chào";
 }
 
 ?>
